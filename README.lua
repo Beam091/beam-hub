@@ -1,3 +1,14 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("BEAM HUB", "DarkTheme")
+local Tab = Window:NewTab("main")
+local Section = Tab:NewSection("fass attack")
+Section:NewToggle("FastAttack", "Click to use FastAttack", function(state)
+local Fast = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+local CameraShaker = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker)
+_G.Fastattack = state -- true\false
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.Fastattack then
 local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 Camera:Stop()
